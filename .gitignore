@@ -10,6 +10,11 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+# annoying unity things
+UserSettings/Layouts/default-2021.dwlt
+UserSettings/EditorUserSettings.asset
+UserSettings/Search.settings
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
