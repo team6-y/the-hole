@@ -11,6 +11,7 @@
 /[Mm]emoryCaptures/
 
 # annoying unity things
+./UserSettings/Layouts/default-2021.dwlt
 /UserSettings/Layouts/default-2021.dwlt
 /UserSettings/EditorUserSettings.asset
 /UserSettings/Search.settings
