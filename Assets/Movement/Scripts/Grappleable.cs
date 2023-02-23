@@ -20,6 +20,8 @@ public class Grappleable : MonoBehaviour, IGrappleable
 
     public GameObject targetPoint;
 
+    private Vector3 targetPos;
+
     public float range = 10f;
 
     public float shootSpeed = 100f;
@@ -83,7 +85,7 @@ public class Grappleable : MonoBehaviour, IGrappleable
             if (inputManager.PlayerHoldingTrigger()) {
                 state = GrappleState.Shooting;
 
-                lineVertices[0] = rb.transform.position - new Vector3(0, 1, 0);
+                lineVertices[0] = pointer.position;
                 hookPos = lineVertices[0];
                 lineVertices[1] = hookPos;
                 lineRenderer.enabled = true;
@@ -96,16 +98,18 @@ public class Grappleable : MonoBehaviour, IGrappleable
 
     void ShootHook() {
         if (!inputManager.PlayerHoldingTrigger()) state = GrappleState.Aiming;
-        hookPos = Vector3.MoveTowards(hookPos, targetPoint.transform.position, shootSpeed * Time.deltaTime);
+        targetPos = targetPoint.transform.position;
+        targetPoint.SetActive(false);
+        hookPos = Vector3.MoveTowards(hookPos, targetPos, shootSpeed * Time.deltaTime);
         lineRenderer.SetPosition(0, hookPos);
-        lineRenderer.SetPosition(1, transform.position - new Vector3(0, 1, 0));
-        if (Vector3.Distance(hookPos, targetPoint.transform.position) < float.Epsilon) state = GrappleState.Reeling;
+        lineRenderer.SetPosition(1, pointer.position);
+        if (Vector3.Distance(hookPos, targetPos) < float.Epsilon) state = GrappleState.Reeling;
     }
 
     void ReelHook() {
         if (!inputManager.PlayerHoldingTrigger()) state = GrappleState.Aiming;
-        reelDir = Vector3.Normalize(targetPoint.transform.position - rb.transform.position);
-        lineRenderer.SetPosition(1, rb.transform.position - new Vector3(0, 1, 0));
+        reelDir = Vector3.Normalize(targetPos - pointer.position);
+        lineRenderer.SetPosition(1, pointer.position);
         rb.AddForce(reelDir * reelSpeed);
         // transform.position = rb.transform.position;
     }
