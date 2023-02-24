@@ -127,7 +127,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""248cf1b0-deb2-4896-8a24-a594287f4945"",
-                    ""path"": ""<OculusTouchController>/triggerPressed"",
+                    ""path"": ""<OculusTouchController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -138,7 +138,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fa0a3335-7625-433b-b6e3-bb0537ff8823"",
-                    ""path"": ""<ViveController>/triggerPressed"",
+                    ""path"": ""<ViveController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
