@@ -24,7 +24,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""NonVR"",
+            ""name"": ""VR"",
             ""id"": ""b3022c17-3bcc-47e1-86ba-0ac1fed65a29"",
             ""actions"": [
                 {
@@ -37,9 +37,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""ShootR"",
                     ""type"": ""Button"",
                     ""id"": ""d56064ea-1f7b-4730-88ed-de2b0a4f8d40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootL"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e185459-6ecf-4e28-a493-5949f492b522"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -94,11 +103,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0680cf7e-c25f-4753-b830-0d3c9e4e6297"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -109,7 +118,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -120,7 +129,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -131,7 +140,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -142,7 +151,62 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""640887c8-8ccb-4a34-b698-5f0d746347dd"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ae4be86-3199-4b86-8499-f1233740e1b7"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""215d63c6-5e6a-4d90-b70a-e88632476d04"",
+                    ""path"": ""<XRController>{LeftHand}/triggerButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d4fc3c27-eaab-4053-ab07-d132cba0d598"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88c4b01e-268e-49a3-8396-1303c2a39b1d"",
+                    ""path"": ""<ViveController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootL"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -151,10 +215,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // NonVR
-        m_NonVR = asset.FindActionMap("NonVR", throwIfNotFound: true);
-        m_NonVR_Direction = m_NonVR.FindAction("Direction", throwIfNotFound: true);
-        m_NonVR_Shoot = m_NonVR.FindAction("Shoot", throwIfNotFound: true);
+        // VR
+        m_VR = asset.FindActionMap("VR", throwIfNotFound: true);
+        m_VR_Direction = m_VR.FindAction("Direction", throwIfNotFound: true);
+        m_VR_ShootR = m_VR.FindAction("ShootR", throwIfNotFound: true);
+        m_VR_ShootL = m_VR.FindAction("ShootL", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -211,49 +276,58 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // NonVR
-    private readonly InputActionMap m_NonVR;
-    private INonVRActions m_NonVRActionsCallbackInterface;
-    private readonly InputAction m_NonVR_Direction;
-    private readonly InputAction m_NonVR_Shoot;
-    public struct NonVRActions
+    // VR
+    private readonly InputActionMap m_VR;
+    private IVRActions m_VRActionsCallbackInterface;
+    private readonly InputAction m_VR_Direction;
+    private readonly InputAction m_VR_ShootR;
+    private readonly InputAction m_VR_ShootL;
+    public struct VRActions
     {
         private @PlayerControls m_Wrapper;
-        public NonVRActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Direction => m_Wrapper.m_NonVR_Direction;
-        public InputAction @Shoot => m_Wrapper.m_NonVR_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_NonVR; }
+        public VRActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Direction => m_Wrapper.m_VR_Direction;
+        public InputAction @ShootR => m_Wrapper.m_VR_ShootR;
+        public InputAction @ShootL => m_Wrapper.m_VR_ShootL;
+        public InputActionMap Get() { return m_Wrapper.m_VR; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(NonVRActions set) { return set.Get(); }
-        public void SetCallbacks(INonVRActions instance)
+        public static implicit operator InputActionMap(VRActions set) { return set.Get(); }
+        public void SetCallbacks(IVRActions instance)
         {
-            if (m_Wrapper.m_NonVRActionsCallbackInterface != null)
+            if (m_Wrapper.m_VRActionsCallbackInterface != null)
             {
-                @Direction.started -= m_Wrapper.m_NonVRActionsCallbackInterface.OnDirection;
-                @Direction.performed -= m_Wrapper.m_NonVRActionsCallbackInterface.OnDirection;
-                @Direction.canceled -= m_Wrapper.m_NonVRActionsCallbackInterface.OnDirection;
-                @Shoot.started -= m_Wrapper.m_NonVRActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_NonVRActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_NonVRActionsCallbackInterface.OnShoot;
+                @Direction.started -= m_Wrapper.m_VRActionsCallbackInterface.OnDirection;
+                @Direction.performed -= m_Wrapper.m_VRActionsCallbackInterface.OnDirection;
+                @Direction.canceled -= m_Wrapper.m_VRActionsCallbackInterface.OnDirection;
+                @ShootR.started -= m_Wrapper.m_VRActionsCallbackInterface.OnShootR;
+                @ShootR.performed -= m_Wrapper.m_VRActionsCallbackInterface.OnShootR;
+                @ShootR.canceled -= m_Wrapper.m_VRActionsCallbackInterface.OnShootR;
+                @ShootL.started -= m_Wrapper.m_VRActionsCallbackInterface.OnShootL;
+                @ShootL.performed -= m_Wrapper.m_VRActionsCallbackInterface.OnShootL;
+                @ShootL.canceled -= m_Wrapper.m_VRActionsCallbackInterface.OnShootL;
             }
-            m_Wrapper.m_NonVRActionsCallbackInterface = instance;
+            m_Wrapper.m_VRActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Direction.started += instance.OnDirection;
                 @Direction.performed += instance.OnDirection;
                 @Direction.canceled += instance.OnDirection;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @ShootR.started += instance.OnShootR;
+                @ShootR.performed += instance.OnShootR;
+                @ShootR.canceled += instance.OnShootR;
+                @ShootL.started += instance.OnShootL;
+                @ShootL.performed += instance.OnShootL;
+                @ShootL.canceled += instance.OnShootL;
             }
         }
     }
-    public NonVRActions @NonVR => new NonVRActions(this);
-    public interface INonVRActions
+    public VRActions @VR => new VRActions(this);
+    public interface IVRActions
     {
         void OnDirection(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnShootR(InputAction.CallbackContext context);
+        void OnShootL(InputAction.CallbackContext context);
     }
 }

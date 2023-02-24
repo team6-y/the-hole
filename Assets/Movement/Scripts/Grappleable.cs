@@ -13,13 +13,16 @@ public enum GrappleState {
     Reeling
 }
 
+
 [RequireComponent(typeof(LineRenderer))]
 public class Grappleable : MonoBehaviour, IGrappleable
 {
     public Transform pointer;
 
-    public GameObject targetPoint;
 
+    public GameObject targetPointPrefab;
+
+    private GameObject targetPoint;
     private Vector3 targetPos;
 
     public float range = 10f;
@@ -28,7 +31,10 @@ public class Grappleable : MonoBehaviour, IGrappleable
 
     public float reelSpeed = 100f;
 
-
+    public Material cannotFireMaterial;
+    
+    public Material canFireMaterial;
+    public Material reelMaterial;
 
     private GrappleState state;
 
@@ -39,6 +45,16 @@ public class Grappleable : MonoBehaviour, IGrappleable
     private Vector3 reelDir;
     private Vector3 hookPos;
 
+    enum Hand {
+        Left,
+        Right
+    }
+
+    [SerializeField] private Hand hand;
+
+    private delegate bool CheckForShoot();
+    private CheckForShoot checkForShoot;
+
     private LineRenderer lineRenderer;
     private Vector3[] lineVertices = new Vector3[2];
 
@@ -48,6 +64,14 @@ public class Grappleable : MonoBehaviour, IGrappleable
         state = GrappleState.Aiming;
         inputManager = InputManager.GetInstance();
         lineRenderer = GetComponent<LineRenderer>();
+        targetPoint = Instantiate(targetPointPrefab);
+        targetPoint.SetActive(false);
+
+        if (hand == Hand.Left) {
+            checkForShoot = inputManager.PlayerHoldingTriggerL;
+        } else {
+            checkForShoot = inputManager.PlayerHoldingTriggerR;
+        }
     }
 
     // Update is called once per frame
@@ -63,9 +87,9 @@ public class Grappleable : MonoBehaviour, IGrappleable
             case GrappleState.Shooting:
                 ShootHook();
                 break;
-            // case GrappleState.Reeling:
-            //     ReelHook();
-            //     break;
+            case GrappleState.Reeling:
+                lineRenderer.SetPosition(1, pointer.position);
+                break;
             default:
                 break;
         }
@@ -77,27 +101,42 @@ public class Grappleable : MonoBehaviour, IGrappleable
 
 
     void AimHook() {
-        lineRenderer.enabled = false;
+        lineRenderer.enabled = true;
         RaycastHit hit;
         if (Physics.Raycast(pointer.position, pointer.forward, out hit, range)){
             targetPoint.SetActive(true);
             targetPoint.transform.position = hit.point;
-            if (inputManager.PlayerHoldingTrigger()) {
+
+            lineRenderer.material = cannotFireMaterial;
+            lineVertices[0] = hit.point;
+            lineVertices[1] = pointer.position;
+
+            lineRenderer.material = canFireMaterial;
+
+            if (checkForShoot()) {
                 state = GrappleState.Shooting;
 
                 lineVertices[0] = pointer.position;
                 hookPos = lineVertices[0];
                 lineVertices[1] = hookPos;
-                lineRenderer.enabled = true;
-                lineRenderer.SetPositions(lineVertices);
+
+                lineRenderer.material = reelMaterial;
             }
+
+
         } else {
             targetPoint.SetActive(false);
+
+            lineRenderer.material = cannotFireMaterial;
+            lineVertices[0] = pointer.position + pointer.forward * range;
+            lineVertices[1] = pointer.position;
         }
+
+        lineRenderer.SetPositions(lineVertices);
     }
 
     void ShootHook() {
-        if (!inputManager.PlayerHoldingTrigger()) state = GrappleState.Aiming;
+        if (!checkForShoot()) state = GrappleState.Aiming;
         targetPos = targetPoint.transform.position;
         targetPoint.SetActive(false);
         hookPos = Vector3.MoveTowards(hookPos, targetPos, shootSpeed * Time.deltaTime);
@@ -107,10 +146,9 @@ public class Grappleable : MonoBehaviour, IGrappleable
     }
 
     void ReelHook() {
-        if (!inputManager.PlayerHoldingTrigger()) state = GrappleState.Aiming;
+        if (!checkForShoot()) state = GrappleState.Aiming;
         reelDir = Vector3.Normalize(targetPos - pointer.position);
-        lineRenderer.SetPosition(1, pointer.position);
+        // lineRenderer.SetPosition(1, pointer.position);
         rb.AddForce(reelDir * reelSpeed);
-        // transform.position = rb.transform.position;
     }
 }

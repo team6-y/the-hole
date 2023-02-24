@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "NonVR",
+            "name": "VR",
             "id": "b3022c17-3bcc-47e1-86ba-0ac1fed65a29",
             "actions": [
                 {
@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "ShootR",
                     "type": "Button",
                     "id": "d56064ea-1f7b-4730-88ed-de2b0a4f8d40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootL",
+                    "type": "Button",
+                    "id": "1e185459-6ecf-4e28-a493-5949f492b522",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -72,11 +81,11 @@
                 {
                     "name": "",
                     "id": "0680cf7e-c25f-4753-b830-0d3c9e4e6297",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -87,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -98,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -109,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -120,7 +129,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "640887c8-8ccb-4a34-b698-5f0d746347dd",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ae4be86-3199-4b86-8499-f1233740e1b7",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "215d63c6-5e6a-4d90-b70a-e88632476d04",
+                    "path": "<XRController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4fc3c27-eaab-4053-ab07-d132cba0d598",
+                    "path": "<OculusTouchController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88c4b01e-268e-49a3-8396-1303c2a39b1d",
+                    "path": "<ViveController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootL",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
