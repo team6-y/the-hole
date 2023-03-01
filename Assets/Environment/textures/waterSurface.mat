@@ -57,7 +57,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Depth: 50
-    - _DepthFade: 10
+    - _DepthFade: 15
     - _Foam: 10
     - _FoamScale: 5
     - _NormalStrength: 0.4
@@ -70,7 +70,7 @@ Material:
     - _WaveSpeed: 1.5
     - _WaveTime: 0.5
     m_Colors:
-    - _Albedo: {r: 0.6067551, g: 0.94266504, b: 0.9528302, a: 0}
+    - _Albedo: {r: 0.6933962, g: 1, b: 0.95037836, a: 0}
     - _FoamColor: {r: 0.72828406, g: 0.9245283, b: 0.8743915, a: 0}
     - _UV1: {r: 6, g: 6, b: 0, a: 0}
     - _UV2: {r: 7, g: 7, b: 0, a: 0}
