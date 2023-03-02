@@ -27,6 +27,9 @@ UserSettings/Search.settings
 # Visual Studio cache directory
 .vs/
 
+# Visual Studio Code setting
+.vscode/
+
 # Gradle cache directory
 .gradle/
 
@@ -216,3 +219,5 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+*.dwlt
+UserSettings/EditorUserSettings.asset

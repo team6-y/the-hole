@@ -32,11 +32,14 @@ public class InputManager : MonoBehaviour
     }
 
     public Vector2 GetCameraDelta() {
-        return playerControls.NonVR.Direction.ReadValue<Vector2>();
+        return playerControls.VR.Direction.ReadValue<Vector2>();
     }
 
-    public bool PlayerHoldingTrigger() {
-        return playerControls.NonVR.Shoot.IsPressed();
+    public bool PlayerHoldingTriggerL() {
+        return playerControls.VR.ShootL.IsPressed();
+    }
+    public bool PlayerHoldingTriggerR() {
+        return playerControls.VR.ShootR.IsPressed();
     }
 
     // Start is called before the first frame update
