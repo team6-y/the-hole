@@ -2360,8 +2360,8 @@ MonoBehaviour:
     type: 3}
   affectedRigidbody: {fileID: 1817368602}
   range: 40
-  shootSpeed: 50
-  reelSpeed: 50
+  shootSpeed: 25
+  reelSpeed: 40
   cannotShootMaterial: {fileID: 2100000, guid: d0e73baf23dcd4c66aa307e26fe12e26, type: 2}
   canShootMaterial: {fileID: 2100000, guid: b88e5af5270a3468caaba6a200e74c36, type: 2}
   reelMaterial: {fileID: 2100000, guid: 39db7c598b4d04bcdb8a3a2e4b51fce5, type: 2}
@@ -2604,6 +2604,8 @@ GameObject:
   - component: {fileID: 1817368600}
   - component: {fileID: 1817368599}
   - component: {fileID: 1817368598}
+  - component: {fileID: 1817368604}
+  - component: {fileID: 1817368603}
   - component: {fileID: 1817368602}
   - component: {fileID: 1817368601}
   m_Layer: 0
@@ -2690,6 +2692,62 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1817368603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817368597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 1817368604}
+  m_TurnAmount: 45
+  m_DebounceTime: 0.25
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 1
+  m_LeftHandSnapTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: da649dd7-9f4c-4ebb-9930-a8db4c71d166
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b9f386f6-c917-40b4-be94-8ea83c90637f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+--- !u!114 &1817368604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817368597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timeout: 10
+  m_XROrigin: {fileID: 1817368599}
 --- !u!1 &1825492679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,8 +2978,8 @@ MonoBehaviour:
     type: 3}
   affectedRigidbody: {fileID: 1817368602}
   range: 40
-  shootSpeed: 50
-  reelSpeed: 50
+  shootSpeed: 25
+  reelSpeed: 40
   cannotShootMaterial: {fileID: 2100000, guid: d0e73baf23dcd4c66aa307e26fe12e26, type: 2}
   canShootMaterial: {fileID: 2100000, guid: b88e5af5270a3468caaba6a200e74c36, type: 2}
   reelMaterial: {fileID: 2100000, guid: 39db7c598b4d04bcdb8a3a2e4b51fce5, type: 2}
